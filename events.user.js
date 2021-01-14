@@ -70,7 +70,6 @@ const mergeEventElements = (events) => {
       width: eventToKeep.style.width,
       border: eventToKeep.style.border,
       borderColor: eventToKeep.style.borderColor,
-      textShadow: eventToKeep.style.textShadow,
     };
     eventToKeep.style.backgroundImage = stripesGradient(colors, 10, 45);
     eventToKeep.style.backgroundSize = "initial";
@@ -83,12 +82,6 @@ const mergeEventElements = (events) => {
     // Clear setting color for declined events
     eventToKeep.querySelector('[aria-hidden="true"]').style.color = null;
 
-    const computedSpanStyle = window.getComputedStyle(eventToKeep.querySelector('span'));
-    if (computedSpanStyle.color == "rgb(255, 255, 255)") {
-      eventToKeep.style.textShadow = "0px 0px 2px black";
-    } else {
-      eventToKeep.style.textShadow = "0px 0px 2px white";
-    }
 
     events.forEach(event => {
       event.style.visibility = "hidden";
